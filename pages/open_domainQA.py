@@ -37,25 +37,30 @@ if choice == '':
     question = st.text_input('Question', 'Input text here or select an example')
 else:
     question = st.text_input('Question', choice)
-n_doc = st.slider('Please select the number of relevant articles retrieved from Wikipedia',0,100) 
+n_doc = st.slider('Please select the number of relevant articles retrieved from Wikipedia',0,10) 
        
 submit = st.button('SUBMIT')
 
 if submit:
     if question != 'Exit':
         ## return
-        psgs = []
-        for i in range(n_doc):
-            k = 'passages_content_' + str(i)
-            psgs.append(k)
+        # psgs = []
+        # for i in range(n_doc):
+        #     k = 'passages_content_' + str(i)
+        #     psgs.append(k)
         result = {
         "pred_answer": '71 percent', 
-        "wiki_psgs": psgs
+        # "wiki_psgs": psgs
         }
 
         if question == 'Which part of earth is covered with water?':
-            st.json(result)
-            
+            # st.json(result)
+            st.write('Answer')
+            st.success(result['pred_answer'])    
+            st.write('Relevant Articles')
+            for i in range(n_doc):
+                k = 'passages_content_' + str(i)
+                st.success(k)  
         #title1 = st.text_input('Question', 'Input more')
     else:
         st.info('Thanks')
