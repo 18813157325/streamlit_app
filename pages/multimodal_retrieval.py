@@ -41,8 +41,12 @@ if submit:
                 "retrieval_image": '/data/yangcheng/MMCoQA/data/final_dataset_images/2b79346aa78121aaaf7e0540983d21ea.jpg'  }
 
         if question == 'Which city features a green copper statue of a woman holding a torch?':
-            st.json(result)
-            
+            # st.json(result)
+            st.write('Answer')
+            st.success(result['pred_text']) 
+            st.success(result['retrieval_content']) 
+            if(result['retrieval_type']=='image'):
+                st.image('https://img.mp.itc.cn/q_70,c_zoom,w_640/upload/20161003/92511364a7dd4ac29490c1b8c8cbdab2_th.jpg')
         #title1 = st.text_input('Question', 'Input more')
     else:
         st.info('Thanks')
