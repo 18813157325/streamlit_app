@@ -13,13 +13,14 @@ import numpy as np
 st.title('CogAgent')
 
 st.markdown('''
-**A KNOWLEDGE-ENHANCED TEXT REPRESENTATION TOOLKIT FOR NATURAL LANGUAGE UNDERSTANDING**
+:green[**_A KNOWLEDGE-ENHANCED TEXT REPRESENTATION TOOLKIT FOR NATURAL LANGUAGE UNDERSTANDING_**]
 ''')
 
 st.header("Open Domain Question Answering")
 
 st.warning('''
-**Write Exit to stop**
+**This module is a question and answer in the open domain, which is a single round of dialogue. 
+Users ask questions, and this module gives answers and retrieves relevant articles from Wikipedia. Write Exit to stop.**
 ''')
 
 # 图片文件上传器
@@ -27,16 +28,16 @@ st.warning('''
 # if image_file is not None:
 #     st.image(load_an_image(image_file), width=250)
 
-choice = st.selectbox('Select an example or input text',['','Which part of earth is covered with water?',
+choice = st.selectbox('Question',['Select an example or input text','Which part of earth is covered with water?',
 'Who proved that genes are located on chromosomes?',
 'Where will the summer olympics be held in 2020?',
 'Who has the largest contract in the NBA?',
 'Who has the most points in nba finals history?' ,
 'Who died in Harry Potter and the Half-Blood Prince?'])
-if choice == '':
-    question = st.text_input('Question', 'Input text here or select an example')
+if choice == 'Select an example or input text':
+    question = st.text_input('Input text here', '')
 else:
-    question = st.text_input('Question', choice)
+    question = st.text_input('Input text here', choice)
 n_doc = st.slider('Please select the number of relevant articles retrieved from Wikipedia',0,10) 
        
 submit = st.button('SUBMIT')
@@ -65,6 +66,7 @@ if submit:
     else:
         st.info('Thanks')
         
+
 
 
 
