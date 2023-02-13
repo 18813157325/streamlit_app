@@ -13,21 +13,22 @@ import numpy as np
 st.title('CogAgent')
 
 st.markdown('''
-**A KNOWLEDGE-ENHANCED TEXT REPRESENTATION TOOLKIT FOR NATURAL LANGUAGE UNDERSTANDING**
+:green[**_A KNOWLEDGE-ENHANCED TEXT REPRESENTATION TOOLKIT FOR NATURAL LANGUAGE UNDERSTANDING_**]
 ''')
 
 st.header("Mutimodal Retrieval")
 
 st.warning('''
-**Write Exit to stop**
+**This module is a multimodal retrieval dialogue, which is a single round of dialogue. When users ask questions, 
+the module will divide the answers into three types: text, picture and table and show them to users.Write Exit to stop**
 ''')
 
-choice = st.selectbox('Select an example or input text',
-                      ['','Which city features a green copper statue of a woman holding a torch?'])
-if choice == '':
-    question = st.text_input('Question', 'Input text here or select an example')
+choice = st.selectbox('Question',
+                      ['Select an example or input text','Which city features a green copper statue of a woman holding a torch?'])
+if choice == 'Select an example or input text':
+    question = st.text_input('Input text here', '')
 else:
-    question = st.text_input('Question', choice)
+    question = st.text_input('Input text here', choice)
        
 submit = st.button('SUBMIT')
 
@@ -51,6 +52,4 @@ if submit:
     else:
         st.info('Thanks')
         
-
-
 
