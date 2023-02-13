@@ -20,7 +20,7 @@ st.header("Mutimodal Retrieval")
 
 st.warning('''
 **This module is a multimodal retrieval dialogue, which is a single round of dialogue. When users ask questions, 
-the module will divide the answers into three types: text, picture and table and show them to users.Write Exit to stop**
+the module will divide the answers into three types: text, picture and table and show them to users.Write Exit to stop.**
 ''')
 
 choice = st.selectbox('Question',
