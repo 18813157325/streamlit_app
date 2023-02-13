@@ -55,7 +55,7 @@ while(1):
             if question != 'Exit':
                 ## return
                 result = {
-                        "pred_text": 'it is a marriage in which the partners agree that each may engage in relationships relationships , without this being regarded as infidelity .', 
+                        "pred_text": 'It is a marriage in which the partners agree that each may engage in relationships relationships , without this being regarded as infidelity .', 
                     }
                 if question == 'What is the definition of Open relationship?':
                     # st.json(result)
