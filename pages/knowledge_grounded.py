@@ -3,15 +3,6 @@ from PIL import Image
 from io import BytesIO
 import numpy as np
 
-
-# import cv2 # 计算机视觉
-
-# 加载图像的函数
-# def load_an_image(image):
-#     img = Image.open(image)
-#     return img
-
-######################################################
 st.title('CogAgent')
 # st.markdown('Streamlit is **_really_ cool**.')
 # st.markdown('This text is :red[colored red], and this is **:blue[colored]** and bold.')
@@ -40,20 +31,20 @@ while(1):
     question = e2.text_input('Input text here','',key = k+100)
     if choice == 'Select an example or input text':
         question = e2.text_input('Input text here','',key = k+10)
-        break
+        # break
     else:
         question = e2.text_input('Input text here',choice,key = k+10)
     k = k+1
     
-    if question == 'Input text here':
+    if question == '':
         break
     else:
         col1, col2 = c1.columns(2)
         with col1:
             if(i==0):
                 st.subheader("User")
-            if(question!=''):
-                st.info(question)
+            # if(question!=''):
+            st.info(question)
 
         with col2:
             if(i==0): 
