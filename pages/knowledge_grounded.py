@@ -2,6 +2,8 @@ import streamlit as st
 from PIL import Image
 from io import BytesIO
 import numpy as np
+
+
 # import cv2 # 计算机视觉
 
 # 加载图像的函数
@@ -23,53 +25,59 @@ st.header("Knowledge Grounded Dialogue")
 st.warning('''
 **This module is a dialogue based on unstructured knowledge, which can conduct multiple rounds of dialogue. Write Exit to stop.**
 ''')
-
-
-
+   
 l = 10  
-choice = list(range(l))     
+# 最多10轮对话    
 i = 0
-k = 0 
-#让selectbox的key值唯一
+k = 0 #让selectbox的key值唯一
+c1 = st.container()
+c2 = st.container()
+e1 = c2.empty()
+e2 = c2.empty()
+
 while(1):
-    # if i == 0:
-    
-    choice = st.selectbox('Question',['Select an example or input text','What is the definition of Open relationship?','Exit'],key = k)
+    choice = e1.selectbox('Question',['Select an example or input text','What is the definition of Open relationship?','Exit'],key = k)
+    question = e2.text_input('Input text here','',key = k+100)
     if choice == 'Select an example or input text':
-        question = st.text_input('Input text here','',key = k+10)
-        k = k+1
+        question = e2.text_input('Input text here','',key = k+10)
         break
     else:
-        question = st.text_input('Input text here',choice, key = k+10)
-        k = k+1
-        col1, col2 = st.columns(2)
+        question = e2.text_input('Input text here',choice,key = k+10)
+    k = k+1
+    
+    if question == 'Input text here':
+        break
+    else:
+        col1, col2 = c1.columns(2)
         with col1:
-            # if(i==0):
-            st.subheader("User")
+            if(i==0):
+                st.subheader("User")
             if(question!=''):
                 st.info(question)
 
         with col2:
-            # if(i==0): 
-            st.subheader("CogAgent")       
+            if(i==0): 
+                st.subheader("CogAgent")       
             if question != 'Exit':
-                ## return
                 result = {
                         "pred_text": 'It is a marriage in which the partners agree that each may engage in relationships relationships , without this being regarded as infidelity .', 
                     }
                 if question == 'What is the definition of Open relationship?':
                     # st.json(result)
-                    # st.write('Answer')
                     st.success(result['pred_text']) 
                     i = i + 1
             else:
                 st.success('Thanks')
+                st.stop()
                 break
+        
     if(i > l-1):
         st.error('The maximum number of rounds of conversation is 10!')
         break
     
     
+
+
 
 
 
