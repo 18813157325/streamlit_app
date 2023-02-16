@@ -42,17 +42,13 @@ while(1):
         col1, col2 = c1.columns(2)
         with col1:
             if(i==0):
-                # image = Image.open('../images/user.png')
-                # st.image(image, caption='User',use_column_width=True)
-                st.image('streamlit_app/pages/user.png')
+                st.image('https://img.zcool.cn/community/01d5e958158d44a84a0d304f1c3e87.png@1280w_1l_2o_100sh.png',width=50)
                 # st.subheader("User")
-            # if(question!=''):
             st.info(question)
 
         with col2:
             if(i==0): 
-                st.image('streamlit_app/pages/cogagent.png')
-                # st.image('/data/zhaojingxuan/zjxcode/CogAgent/cogagent/streamlit_app-main/pages/cogagent.png')
+                st.image('https://www.leyantech.com/themes/leyan/public/assets/images/helpOther/robot.png',width=50)
                 # st.subheader("CogAgent")       
             if question != 'Exit':
                 result = {
@@ -72,7 +68,5 @@ while(1):
         break
     
     
-
-
 
 
