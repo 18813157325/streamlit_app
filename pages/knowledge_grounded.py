@@ -14,7 +14,7 @@ st.markdown('''
 st.header("Knowledge Grounded Dialogue")
 
 st.warning('''
-**This module is a dialogue based on unstructured knowledge, which can conduct multiple rounds of dialogue. Write Exit to stop.**
+**This module is a dialogue based on unstructured text knowledge, which can conduct multiple rounds of dialogue. Write Exit to stop.**
 ''')
    
 l = 10  
