@@ -42,13 +42,18 @@ while(1):
         col1, col2 = c1.columns(2)
         with col1:
             if(i==0):
-                st.subheader("User")
+                # image = Image.open('../images/user.png')
+                # st.image(image, caption='User',use_column_width=True)
+                st.image('streamlit_app/pages/user.png')
+                # st.subheader("User")
             # if(question!=''):
             st.info(question)
 
         with col2:
             if(i==0): 
-                st.subheader("CogAgent")       
+                st.image('streamlit_app/pages/cogagent.png')
+                # st.image('/data/zhaojingxuan/zjxcode/CogAgent/cogagent/streamlit_app-main/pages/cogagent.png')
+                # st.subheader("CogAgent")       
             if question != 'Exit':
                 result = {
                         "pred_text": 'It is a marriage in which the partners agree that each may engage in relationships relationships , without this being regarded as infidelity .', 
@@ -67,7 +72,6 @@ while(1):
         break
     
     
-
 
 
 
